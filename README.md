@@ -1,0 +1,2 @@
+# resume
+zeki şahmaran cv
