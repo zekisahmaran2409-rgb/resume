@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeki Şahmaran</title> 
 <style>
+.social-nav {
+  padding: 15px 0;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.social-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-nav li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.social-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-nav a img {
+  margin-right: 8px;
+ width: 24px; 
+  vertical-align: middle;
+}
+
+.social-nav a:hover {
+  color: #0077b5; /* LinkedIn mavisi gibi */
+}
+
     body {
   background-color: #0a1725;
     color: #ede7ed;
@@ -12,21 +46,54 @@
     font-family: Arial, sans-serif;
 }
 #profileImage {
-    height:150px;
+    height: 150px;
     border-radius: 50%;
-    border:10px solid white;
+    border: 10px solid white;
     opacity: 1;
-
+    transition: transform 0.3s ease; /* animasyon süresi ve yumuşaklığı */
+    transform-style: preserve-3d;    /* 3D dönüşüm için gerekli */
 }
-    #profileImage:hover {
-        border-color: rgb(0, 255, 204);
-    }
+
+#profileImage:hover {
+    border-color: rgb(204, 0, 255);
+    transform: rotateY(180deg); /* Y ekseninde 180 derece döndürür */
+}
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+
+}
+main {
     background-color: #1a2535;
+    padding: 20px;
     border-radius: 10px;
+}
+section {
+    box-shadow: 0px 0px 2px 3px rgb(55 102 89 / 10%);
+    background: linear-gradient(-45deg, #0c1c34, #2a384c);
+    border-radius: 40px;
+    border: 1px solid #323840;
+    padding: 20px;
+    margin: 20px 0;
+}
+section h2 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a82bb;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    background-color: #2a384c;
+}   
+#whatsappBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+}
+#whatsappBtn img {
+   
+    height: 60px;
+
 }
 </style>
 </head>
@@ -35,47 +102,121 @@
         <header>
             <img src="profile.jpeg" alt="başvuru" id="profileImage">
             <h1>Zeki Şahmaran</h1>
-            <p>✆ +90 533 123 45 67 - ✉ zekisah@gmail.com</p>
+            <p>✆ +90 533 889 19 18 - ✉ zekisahmaran2409@gmail.com</p>
         </header>
         <main>
-            <h2>Özet</h2>
-            <p>ben Zeki.futbol oynamayı seven biriyim.</p>
             
-            <h2>Eğitim</h2> 
-            <p>Türk Maarif Koleji (2020 - Devam Ediyor)</p>
-            <p>Ağırdağ İlkokulu (2014 - 2020)</p>
+            <section>
+                <h2>Özet</h2>
+                <p>ben Zeki.futbol oynamayı seven biriyim.</p>
+            </section>
+           
+            <section>
+                <h2>Eğitim</h2> 
+                <p>Türk Maarif Koleji (2020 - Devam Ediyor)</p>
+                <p>Ağırdağ İlkokulu (2014 - 2020)</p>
+            </section> 
+           
+            <section>
+                <h2>Deneyim</h2>
+                <p>Suva Medya - Web Geliştirme Stajı</p>
+                <p>Whitehat Computer - Teknik Servis Stajı</p>
+                <p>Deniz Plaza - Satış Danışmanı </p>
+            </section> 
+           
+            <section>
+                <h2>Yetenekler</h2> 
+                <p>Robotik Kodlama - Phyton</p>
+            </section> 
+           
+            <section>
+                <h2>Projeler</h2>
+                <p></p>
+            </section> 
+           
+            <section>
+                <h2>Sertifikalar & Kurslar</h2>
+                <p></p>
+            </section> 
+           
+            <section>
+                <h2>Ödüller</h2>
+                <p>TMKATHLON - Takım Olarak Üçüncülük</p>
+                <p>Futsal Turnuvası - İkincilik</p>
+            </section>   
+           
+            <section>
+                <h2>Diller</h2>
+                <p>Türkçe - Ana Dil</p>
+                <p>İngilizce -İyi Seviye</p>
+                <p>Almanca - Temel Seviye</p>
+            </section>   
+           
+            <section>
+                <h2>Gönüllülük / Kulüp Üyelikleri</h2>
+                <p>Türk Maarif Koleji - Kitap Kulübü</p>
+                <p>Türk Maarif Koleji - Robotik Kulübü</p>
+                <p>Türk Maarif Koleji - Futsal Takımı</p>
+            </section>   
             
-            <h2>Deneyim</h2>
-            <p>Suva Medya - Web Geliştirme Stajı</p>
-            <p>Whitehat Computer - Teknik Servis Stajı</p>
-            <p>Deniz Plaza - Satış Danışmanı </p>
-          
-            <h2>Yetenekler</h2> 
-            <p>Robotik Kodlama - Phyton</p>
-
-            <h2>Projeler</h2>
-            <p></p>
-
-            <h2>Sertifikalar & Kurslar</h2>
-            <p></p>
-
-            <h2>Ödüller</h2>
-            <p>TMKATHLON - Takım Olarak Üçüncülük</p>
-            <p>Futsal Turnuvası - İkincilik</p>
-
-            <h2>Diller</h2>
-            <p>Türkçe - Ana Dil</p>
-            <p>İngilizce -İyi Seviye</p>
-            <p>Almanca - Temel Seviye</p>
-            
-            <h2>Gönüllülük / Kulüp Üyelikleri</h2>
-            <p>Türk Maarif Koleji - Kitap Kulübü</p>
-
-            <h2>Hobiler & İlgi Alanları</h2>
-            <p>Futbol, Drift, Rally, Teknoloji Takibi</p>
+            <section>
+                <h2>Hobiler & İlgi Alanları</h2>
+                <p>Futbol, Drift, Rally, Teknoloji Takibi</p>
+            </section>   
+              
         </main>
         <footer>
+            <nav class="social-nav">
+                <ul>
+                    <li>
+                        <a href="https://github.com/zekisahmaran2409-rgb" target="_blank">
+                            <img src="github.png">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/zekisahmaran" target="_blank">
+                           <img src="instagram.png">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/Zeki.sahmaran" target="_blank">
+                            <img src="facebook.png">
+                            facebook 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@zekisahmaran" target="_blank">
+                          <img src="youtube.png">  
+                          youtube
+                         </a>
+                    </li>
+                </ul>
+            </nav> 
         </footer> 
     </div>
+    <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
+         <img src="whatsapp.png">
+        </a>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/g8hjiOzS2z4?si=Bu0gFD_mH6M20_eO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.8551301285875!2d33.239795575573275!3d35.284727972717874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de0de42ebf9dc7%3A0xd167d626ecd0cbd!2sCypriana%20Restaurant!5e0!3m2!1str!2s!4v1755690478259!5m2!1str!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </body>
 </html>
+
+           
+            
+           
+          
+            
+
+            
+
+            
+
+           
+           
+            
+           
+            
+        
