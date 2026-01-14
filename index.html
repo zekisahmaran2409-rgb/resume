@@ -19,6 +19,7 @@
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding-top: 50px;
+            overflow-x: hidden;
         }
 
         /* Profil Fotoğrafı Efekti */
@@ -28,12 +29,12 @@
             object-fit: cover;
             border-radius: 50%;
             border: 5px solid var(--accent-color);
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 0 20px rgba(138, 130, 187, 0.3);
         }
 
         #profileImage:hover {
-            transform: scale(1.05) rotateY(180deg);
+            transform: scale(1.1) rotateY(180deg);
             border-color: #cc00ff;
         }
 
@@ -43,9 +44,9 @@
             border-radius: 20px;
             border: 1px solid var(--border-color);
             padding: 25px;
-            margin: 25px 0;
+            margin: 20px 0;
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         section:hover {
@@ -53,7 +54,7 @@
             border-color: var(--accent-color);
         }
 
-        h1 { font-weight: 700; letter-spacing: -1px; }
+        h1 { font-weight: 700; letter-spacing: -1px; margin-top: 15px; }
         
         h2 {
             font-size: 1.2rem;
@@ -71,7 +72,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
         }
 
         .social-nav a {
@@ -81,19 +82,18 @@
             transition: 0.3s;
             display: flex;
             align-items: center;
+            font-size: 1.1rem;
         }
 
-        .social-nav a:hover { color: #0077b5; }
-        .social-nav img { width: 24px; margin-right: 8px; }
+        .social-nav a:hover { color: #8a82bb; transform: scale(1.1); }
+        .social-nav img { width: 28px; margin-right: 10px; }
 
-        /* Carousel ve Video */
-        .carousel {
-            border-radius: 20px;
+        /* Video Alanı */
+        .video-container {
+            border-radius: 15px;
             overflow: hidden;
-            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        iframe { border-radius: 15px; width: 100%; }
 
         #whatsappBtn {
             position: fixed;
@@ -102,23 +102,29 @@
             z-index: 1000;
             transition: 0.3s;
         }
-        #whatsappBtn:hover { transform: scale(1.1); }
-        #whatsappBtn img { height: 60px; }
+        #whatsappBtn:hover { transform: scale(1.2) rotate(10deg); }
+        #whatsappBtn img { height: 65px; }
 
         .badge-skill {
             background-color: var(--accent-color);
-            color: #000;
-            margin-right: 5px;
+            color: #0a1725;
+            margin: 5px 3px;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            display: inline-block;
         }
+
+        .list-item { margin-bottom: 10px; display: block; }
     </style>
 </head>
 <body>
 
 <div class="container mb-5">
     <header class="text-center mb-5">
-        <img src="img/profile.jpeg" alt="Zeki Şahmaran" id="profileImage" class="mb-3">
+        <img src="img/profile.jpeg" alt="Zeki Şahmaran" id="profileImage">
         <h1>Zeki Şahmaran</h1>
-        <p class="text-muted">✆ +90 533 889 19 18 | ✉ zekisahmaran2409@gmail.com</p>
+        <p class="text-muted mt-2">✆ +90 533 889 19 18 | ✉ zekisahmaran2409@gmail.com</p>
     </header>
 
     <main>
@@ -126,102 +132,99 @@
             <div class="col-md-6">
                 <section>
                     <h2>Özet</h2>
-                    <p>Teknolojiye meraklı, Python ve Robotik kodlama alanlarında kendini geliştiren bir öğrenciyim. Spor (Futsal) ve teknoloji arasındaki dengeyi korumayı seviyorum.</p>
+                    <p>Ben Zeki. Türk Maarif Koleji öğrencisiyim. Futbol oynamayı ve gelişen teknolojileri takip etmeyi seviyorum. Python ve Robotik Kodlama üzerine çalışmalar yapıyorum.</p>
                 </section>
 
                 <section>
                     <h2>Eğitim</h2> 
-                    <p><strong>Türk Maarif Koleji</strong> (2020 - Devam Ediyor)</p>
-                    <p><strong>Ağırdağ İlkokulu</strong> (2014 - 2020)</p>
+                    <div class="list-item"><strong>Türk Maarif Koleji</strong> <br> <small class="text-muted">(2020 - Devam Ediyor)</small></div>
+                    <div class="list-item"><strong>Ağırdağ İlkokulu</strong> <br> <small class="text-muted">(2014 - 2020)</small></div>
                 </section>
 
                 <section>
                     <h2>Deneyim</h2>
-                    <ul class="list-unstyled">
-                        <li>🚀 <strong>Suva Medya</strong> - Web Geliştirme Stajı</li>
-                        <li>🛠️ <strong>Whitehat Computer</strong> - Teknik Servis Stajı</li>
-                        <li>💼 <strong>Deniz Plaza</strong> - Satış Danışmanı</li>
-                    </ul>
+                    <div class="list-item">🚀 <strong>Suva Medya</strong> - Web Geliştirme Stajı</div>
+                    <div class="list-item">🛠️ <strong>Whitehat Computer</strong> - Teknik Servis Stajı</div>
+                    <div class="list-item">💼 <strong>Deniz Plaza</strong> - Satış Danışmanı</div>
                 </section>
             </div>
 
             <div class="col-md-6">
                 <section>
                     <h2>Yetenekler</h2> 
-                    <span class="badge badge-skill">Python</span>
-                    <span class="badge badge-skill">Robotik Kodlama</span>
-                    <span class="badge badge-skill">Web Tasarım</span>
-                    <span class="badge badge-skill">Problem Çözme</span>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge-skill">Python</span>
+                        <span class="badge-skill">Robotik Kodlama</span>
+                        <span class="badge-skill">Donanım Tamiri</span>
+                        <span class="badge-skill">Web Tasarım</span>
+                    </div>
                 </section>
 
                 <section>
-                    <h2>Projeler</h2>
-                    <p>• <strong>Otonom Robot Kontrolü:</strong> Python ile temel sensör yönetimi.</p>
-                    <p>• <strong>Kişisel Portfolyo:</strong> HTML/CSS ve Bootstrap tabanlı web sitesi.</p>
+                    <h2>Ödüller & Başarılar</h2>
+                    <p>🏆 <strong>TMKATHLON</strong> - Takım Olarak Üçüncülük</p>
+                    <p>⚽ <strong>Futsal Turnuvası</strong> - İkincilik</p>
                 </section>
 
                 <section>
-                    <h2>Ödüller</h2>
-                    <p>🏆 TMKATHLON - Takım Üçüncülüğü</p>
-                    <p>⚽ Futsal Turnuvası - İkincilik</p>
+                    <h2>Gönüllülük</h2>
+                    <p>📚 TMK Kitap Kulübü Üyesi</p>
+                    <p>🤖 TMK Robotik Kulübü Üyesi</p>
+                    <p>🏃 TMK Futsal Takımı Oyuncusu</p>
                 </section>
             </div>
         </div>
 
         <section>
-            <h2>Diller & İlgi Alanları</h2>
-            <div class="row">
-                <div class="col-6">
-                    <p>🇹🇷 Türkçe (Anadil)</p>
-                    <p>🇬🇧 İngilizce (İyi)</p>
-                    <p>🇩🇪 Almanca (Temel)</p>
-                </div>
-                <div class="col-6">
-                    <p>🏎️ Drift & Rally</p>
-                    <p>⚽ Futbol</p>
-                    <p>💻 Teknoloji Takibi</p>
-                </div>
+            <h2 class="text-center">Tanıtım & Medya</h2>
+            <div class="video-container ratio ratio-16x9">
+                <iframe 
+                    src="https://www.youtube.com/embed/CEnIXtpEZ34" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </section>
 
-        <div id="videoCarousel" class="carousel slide shadow-lg" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <iframe height="350" src="https://www.youtube.com/embed/CEnIXtpEZ34" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <section>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Diller</h2>
+                    <p>🇹🇷 Türkçe - Ana Dil</p>
+                    <p>🇬🇧 İngilizce - İyi Seviye</p>
+                    <p>🇩🇪 Almanca - Temel Seviye</p>
                 </div>
-                <div class="carousel-item">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.644781440615!2d33.3562!3d35.1856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDExJzA4LjIiTiAzM8KwMjEnMjIuMyJF!5e0!3m2!1str!2s!4v1625000000000" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="col-md-6">
+                    <h2>Hobiler</h2>
+                    <p>⚽ Futbol & Futsal</p>
+                    <p>🏎️ Drift & Rally Sporları</p>
+                    <p>📱 Yeni Nesil Teknolojiler</p>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        </div>
+        </section>
     </main>
 
-    <footer class="mt-5">
+    <footer class="py-4">
         <nav class="social-nav">
             <ul>
-                <li><a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png"> GitHub</a></li>
-                <li><a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png"> Instagram</a></li>
-                <li><a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png"> Facebook</a></li>
-                <li><a href="https://www.youtube.com/@zeki-ş09" target="_blank"><img src="img/youtube.png"> YouTube</a></li>
+                <li><a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png" alt="Github">GitHub</a></li>
+                <li><a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png" alt="Instagram">Instagram</a></li>
+                <li><a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png" alt="Facebook">Facebook</a></li>
+                <li><a href="https://www.youtube.com/@zeki-ş09" target="_blank"><img src="img/youtube.png" alt="YouTube">YouTube</a></li>
             </ul>
         </nav>
     </footer>
 </div>
 
 <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
-    <img src="img/whatsapp.png" alt="WhatsApp Destek">
+    <img src="img/whatsapp.png" alt="WhatsApp">
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-           
             
            
           
