@@ -3,119 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zeki Şahmaran | Portfolyo</title>
+    <title>Zeki Şahmaran | Kişisel Portfolyo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0a1725;
-            --card-bg: rgba(26, 37, 53, 0.8);
+            --card-bg: rgba(26, 37, 53, 0.85);
             --accent-color: #8a82bb;
             --text-color: #ede7ed;
             --border-color: #323840;
+            --success-color: #00d1b2;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-top: 50px;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-top: 60px;
+            line-height: 1.6;
         }
 
-        /* Profil Fotoğrafı Efekti */
+        /* Profil Fotoğrafı ve Header */
         #profileImage {
-            height: 160px;
-            width: 160px;
+            height: 170px;
+            width: 170px;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid var(--accent-color);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 0 20px rgba(138, 130, 187, 0.3);
+            border: 4px solid var(--accent-color);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 30px rgba(138, 130, 187, 0.2);
         }
 
         #profileImage:hover {
-            transform: scale(1.1) rotateY(180deg);
-            border-color: #cc00ff;
+            transform: scale(1.05) rotateY(180deg);
+            border-color: var(--success-color);
         }
 
-        /* Bölüm Tasarımları */
+        /* Kurumsal Bölüm Tasarımı */
         section {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 16px;
             border: 1px solid var(--border-color);
-            padding: 25px;
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
         }
 
         section:hover {
-            transform: translateY(-5px);
             border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
-        h1 { font-weight: 700; letter-spacing: -1px; margin-top: 15px; }
+        h1 { font-weight: 800; font-size: 2.5rem; margin-top: 20px; color: #fff; }
         
         h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--accent-color);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 15px;
-        }
-
-        /* Sosyal Medya Navigasyonu */
-        .social-nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
-
-        .social-nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: 0.3s;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            font-size: 1.1rem;
         }
 
-        .social-nav a:hover { color: #8a82bb; transform: scale(1.1); }
-        .social-nav img { width: 28px; margin-right: 10px; }
+        h2::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: var(--border-color);
+            margin-left: 15px;
+        }
+
+        /* Liste ve İçerik Düzeni */
+        .experience-item { margin-bottom: 20px; }
+        .experience-title { font-weight: 700; color: #fff; }
+        .experience-subtitle { color: var(--accent-color); font-size: 0.9rem; }
+        
+        .badge-skill {
+            background: rgba(138, 130, 187, 0.1);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin: 4px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .badge-skill:hover { background: var(--accent-color); color: #0a1725; }
 
         /* Video Alanı */
-        .video-container {
-            border-radius: 15px;
+        .video-wrapper {
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
         }
+
+        /* Sosyal Medya */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+        }
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        .social-links a:hover { opacity: 1; color: var(--accent-color); }
+        .social-links img { width: 22px; margin-right: 8px; filter: grayscale(1); transition: 0.3s; }
+        .social-links a:hover img { filter: grayscale(0); }
 
         #whatsappBtn {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 1000;
-            transition: 0.3s;
-        }
-        #whatsappBtn:hover { transform: scale(1.2) rotate(10deg); }
-        #whatsappBtn img { height: 65px; }
-
-        .badge-skill {
-            background-color: var(--accent-color);
-            color: #0a1725;
-            margin: 5px 3px;
-            padding: 8px 15px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            display: inline-block;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
         }
 
-        .list-item { margin-bottom: 10px; display: block; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            section { padding: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -124,119 +139,130 @@
     <header class="text-center mb-5">
         <img src="img/profile.jpeg" alt="Zeki Şahmaran" id="profileImage">
         <h1>Zeki Şahmaran</h1>
-        <p class="text-muted mt-2">✆ +90 533 889 19 18 | ✉ zekisahmaran2409@gmail.com</p>
+        <div class="d-flex justify-content-center gap-3 text-muted mt-2">
+            <span>📍 KKTC</span>
+            <span>•</span>
+            <span>✉ zekisahmaran2409@gmail.com</span>
+        </div>
     </header>
 
     <main>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <section>
-                    <h2>Özet</h2>
-                    <p>Ben Zeki. Türk Maarif Koleji öğrencisiyim. Futbol oynamayı ve gelişen teknolojileri takip etmeyi seviyorum. Python ve Robotik Kodlama üzerine çalışmalar yapıyorum.</p>
+                    <h2>Profil Özeti</h2>
+                    <p>Türk Maarif Koleji bünyesinde akademik eğitimine devam eden, teknoloji ve yazılım dünyasına tutkulu bir öğrenciyim. Python programlama dili ve robotik sistemler üzerinde projeler geliştiriyor, teorik bilgilerimi staj deneyimleriyle pratiğe döküyorum. Takım çalışmasına yatkın, çözüm odaklı ve sürekli gelişimi hedefleyen bir yapıya sahibim.</p>
                 </section>
 
                 <section>
-                    <h2>Eğitim</h2> 
-                    <div class="list-item"><strong>Türk Maarif Koleji</strong> <br> <small class="text-muted">(2020 - Devam Ediyor)</small></div>
-                    <div class="list-item"><strong>Ağırdağ İlkokulu</strong> <br> <small class="text-muted">(2014 - 2020)</small></div>
-                </section>
-
-                <section>
-                    <h2>Deneyim</h2>
-                    <div class="list-item">🚀 <strong>Suva Medya</strong> - Web Geliştirme Stajı</div>
-                    <div class="list-item">🛠️ <strong>Whitehat Computer</strong> - Teknik Servis Stajı</div>
-                    <div class="list-item">💼 <strong>Deniz Plaza</strong> - Satış Danışmanı</div>
-                </section>
-            </div>
-
-            <div class="col-md-6">
-                <section>
-                    <h2>Yetenekler</h2> 
-                    <div class="d-flex flex-wrap">
-                        <span class="badge-skill">Python</span>
-                        <span class="badge-skill">Robotik Kodlama</span>
-                        <span class="badge-skill">Donanım Tamiri</span>
-                        <span class="badge-skill">Web Tasarım</span>
+                    <h2>Mesleki Deneyim</h2>
+                    <div class="experience-item">
+                        <div class="experience-title">Suva Medya</div>
+                        <div class="experience-subtitle">Web Geliştirme Stajyeri</div>
+                        <small class="text-muted">Modern web arayüzleri ve içerik yönetimi süreçlerinde deneyim kazanımı.</small>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">Whitehat Computer</div>
+                        <div class="experience-subtitle">Teknik Servis & Donanım Stajyeri</div>
+                        <small class="text-muted">Donanım arıza tespiti, sistem montajı ve teknik bakım operasyonları.</small>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">Deniz Plaza</div>
+                        <div class="experience-subtitle">Satış & İletişim Danışmanı</div>
+                        <small class="text-muted">Müşteri ilişkileri yönetimi ve profesyonel saha operasyonları.</small>
                     </div>
                 </section>
 
                 <section>
-                    <h2>Ödüller & Başarılar</h2>
-                    <p>🏆 <strong>TMKATHLON</strong> - Takım Olarak Üçüncülük</p>
-                    <p>⚽ <strong>Futsal Turnuvası</strong> - İkincilik</p>
+                    <h2>Eğitim Geçmişi</h2>
+                    <div class="experience-item">
+                        <div class="experience-title">Türk Maarif Koleji (TMK)</div>
+                        <div class="experience-subtitle">Ortaöğretim | 2020 - Günümüz</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">Ağırdağ İlkokulu</div>
+                        <div class="experience-subtitle">Mezuniyet | 2014 - 2020</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-6">
+                <section>
+                    <h2>Teknik Yetkinlikler</h2>
+                    <div class="mb-3">
+                        <span class="badge-skill">Python Programlama</span>
+                        <span class="badge-skill">Robotik Kodlama (Arduino/Raspberry Pi)</span>
+                        <span class="badge-skill">HTML5 & CSS3</span>
+                        <span class="badge-skill">Donanım Diagnostiği</span>
+                        <span class="badge-skill">Sistem Bakım & Onarım</span>
+                    </div>
                 </section>
 
                 <section>
-                    <h2>Gönüllülük</h2>
-                    <p>📚 TMK Kitap Kulübü Üyesi</p>
-                    <p>🤖 TMK Robotik Kulübü Üyesi</p>
-                    <p>🏃 TMK Futsal Takımı Oyuncusu</p>
+                    <h2>Başarılar & Ödüller</h2>
+                    <div class="experience-item">
+                        <div class="experience-title">🏆 TMKATHLON Yarışması</div>
+                        <div class="experience-subtitle">Takım Halinde İl Üçüncülüğü</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">⚽ Okullar Arası Futsal Turnuvası</div>
+                        <div class="experience-subtitle">Turnuva İkinciliği & Sportmenlik Ödülü</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Sosyal Faaliyetler</h2>
+                    <ul class="list-unstyled">
+                        <li>• TMK Robotik Kulübü Aktif Üyesi</li>
+                        <li>• TMK Kitap Okuma Topluluğu</li>
+                        <li>• TMK Okul Futsal Takımı Lisanslı Oyuncusu</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Dil & İlgi Alanları</h2>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="experience-subtitle mb-1">DİLLER</div>
+                            <small>Türkçe (Anadil)<br>İngilizce (B2 Seviye)<br>Almanca (A1 Seviye)</small>
+                        </div>
+                        <div class="col-6">
+                            <div class="experience-subtitle mb-1">HOBİLER</div>
+                            <small>Otomotiv Teknolojileri<br>Rally & Drift Sporları<br>Amatör Futbol</small>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
 
         <section>
-            <h2 class="text-center">Tanıtım & Medya</h2>
-            <div class="video-container ratio ratio-16x9">
+            <h2 class="text-center">Dijital Portfolyo & Tanıtım</h2>
+            <div class="video-wrapper ratio ratio-16x9">
                 <iframe 
                     src="https://www.youtube.com/embed/CEnIXtpEZ34" 
                     title="YouTube video player" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen>
                 </iframe>
             </div>
         </section>
-
-        <section>
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Diller</h2>
-                    <p>🇹🇷 Türkçe - Ana Dil</p>
-                    <p>🇬🇧 İngilizce - İyi Seviye</p>
-                    <p>🇩🇪 Almanca - Temel Seviye</p>
-                </div>
-                <div class="col-md-6">
-                    <h2>Hobiler</h2>
-                    <p>⚽ Futbol & Futsal</p>
-                    <p>🏎️ Drift & Rally Sporları</p>
-                    <p>📱 Yeni Nesil Teknolojiler</p>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="py-4">
-        <nav class="social-nav">
-            <ul>
-                <li><a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png" alt="Github">GitHub</a></li>
-                <li><a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png" alt="Instagram">Instagram</a></li>
-                <li><a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png" alt="Facebook">Facebook</a></li>
-                <li><a href="https://www.youtube.com/@zeki-ş09" target="_blank"><img src="img/youtube.png" alt="YouTube">YouTube</a></li>
-            </ul>
-        </nav>
+    <footer class="mt-5 py-4 border-top border-secondary">
+        <ul class="social-links">
+            <li><a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png">GitHub</a></li>
+            <li><a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png">Instagram</a></li>
+            <li><a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png">Facebook</a></li>
+            <li><a href="https://www.youtube.com/@zeki-ş09" target="_blank"><img src="img/youtube.png">YouTube</a></li>
+        </ul>
+        <p class="text-center text-muted mt-3" style="font-size: 0.8rem;">&copy; 2026 Zeki Şahmaran. Tüm hakları saklıdır.</p>
     </footer>
 </div>
 
 <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
-    <img src="img/whatsapp.png" alt="WhatsApp">
+    <img src="img/whatsapp.png" alt="WhatsApp" width="60">
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-            
-           
-          
-            
-
-            
-
-            
-
-           
-           
-            
-           
-            
-        
