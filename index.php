@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zeki Şahmaran</title> 
+<style>
+/* CSS'in tamamı aynı şekilde bırakıldı */
+.social-nav { padding: 15px 0; text-align: center; font-family: 'Segoe UI', sans-serif; }
+.social-nav ul { list-style: none; margin: 0; padding: 0; }
+.social-nav li { display: inline-block; margin: 0 20px; }
+.social-nav a { text-decoration: none; color: #ffffff; font-size: 18px; transition: color 0.3s ease; }
+.social-nav a img { margin-right: 8px; width: 24px; vertical-align: middle; }
+.social-nav a:hover { color: #0077b5; }
+html, body { width: 100%; padding: 0; }
+body { background-color: #0a1725; color: #ede7ed; text-align: center; font-family: Arial, sans-serif; overflow-x: hidden; }
+#profileImage { height: 150px; border-radius: 50%; border: 10px solid white; opacity: 1; transition: transform 0.3s ease; transform-style: preserve-3d; }
+#profileImage:hover { border-color: rgb(204, 0, 255); transform: rotateY(180deg); }
+.container { max-width: 800px; margin: 0 auto; width: 100% }
+main { background-color: #1a2535; padding: 20px; border-radius: 10px; }
+section { box-shadow: 0px 0px 2px 3px rgb(55 102 89 / 10%); background: linear-gradient(-45deg, #0c1c34, #2a384c); border-radius: 40px; border: 1px solid #323840; padding: 20px; margin: 20px 0; }
+section h2 { letter-spacing: 2px; text-transform: uppercase; color: #8a82bb; font-size: 1.5em; margin-bottom: 10px; background-color: #2a384c; }   
+#whatsappBtn { position: fixed; bottom: 20px; right: 20px; z-index: 1; }
+#whatsappBtn img { height: 60px; }
+iframe { width: 100%; }
+@media (max-width: 600px) {
+  .social-nav ul { display: flex; flex-direction: column; align-items: center; }
+  .social-nav li { display: block; margin: 10px 0; }
+  .social-nav a { font-size: 16px; }
+  .social-nav a img { width: 20px; margin-right: 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="img/profile.jpeg" alt="başvuru" id="profileImage">
+        <h1>Zeki Şahmaran</h1>
+        <p>✆ +90 533 889 19 18 - ✉ zekisahmaran2409@gmail.com</p>
+    </header>
+    <main>
+        <section>
+            <h2>Özet</h2>
+            <p>ben Zeki.futbol oynamayı seven biriyim.</p>
+        </section>
+        <section>
+            <h2>Eğitim</h2> 
+            <p>Türk Maarif Koleji - 2020-2024 (Lise)</p>
+           
+        </section> 
+        <section>
+            <h2>İş Deneyimleri</h2>
+            <div id="work-experiences">
+                <?php include("work_experiences.php"); ?>
+            </div>
+        </section> 
+        <section>
+            <h2>Yetenekler</h2> 
+            <p>Robotik Kodlama - Phyton</p>
+        </section> 
+        <section>
+            <h2>Projeler</h2>
+            <p></p>
+        </section> 
+        <section>
+            <h2>Sertifikalar & Kurslar</h2>
+            <p></p>
+        </section> 
+        <section>
+            <h2>Ödüller</h2>
+            <p>TMKATHLON - Takım Olarak Üçüncülük</p>
+            <p>Futsal Turnuvası - İkincilik</p>
+        </section>   
+        <section>
+            <h2>Diller</h2>
+            <p>Türkçe - Ana Dil</p>
+            <p>İngilizce -İyi Seviye</p>
+            <p>Almanca - Temel Seviye</p>
+        </section>   
+        <section>
+            <h2>Gönüllülük / Kulüp Üyelikleri</h2>
+            <p>Türk Maarif Koleji - Kitap Kulübü</p>
+            <p>Türk Maarif Koleji - Robotik Kulübü</p>
+            <p>Türk Maarif Koleji - Futsal Takımı</p>
+        </section>   
+        <section>
+            <h2>Hobiler & İlgi Alanları</h2>
+            <p>Futbol, Drift, Rally, Teknoloji Takibi</p>
+        </section> 
+        <section>
+        <h2>Feedback</h2>
+         <form action="submit_feedback.php" method="post">
+        <input type="email" name="email" placeholder="Email" required class="form-control mb-2">
+        <textarea name="message" placeholder="Your feedback..." required class="form-control mb-2"></textarea>
+        <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+</section>
+  
+    </main>
+    <footer>
+        <nav class="social-nav">
+            <ul>
+                <li><a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png">GitHub</a></li>
+                <li><a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png">Instagram</a></li>
+                <li><a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png">facebook</a></li>
+                <li><a href="https://www.youtube.com/@zekisahmaran" target="_blank"><img src="img/youtube.png">youtube</a></li>
+            </ul>
+        </nav> 
+    </footer> 
+    <div id="carouselExampleControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/g8hjiOzS2z4?si=Bu0gFD_mH6M20_eO" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="carousel-item">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.8551301285875!2d33.239795575573275!3d35.284727972717874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de0de42ebf9dc7%3A0xd167d626ecd0cbd!2sCypriana%20Restaurant!5e0!3m2!1str!2s!4v1755690478259!5m2!1str!2s" width="560" height="315" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn"><img src="img/whatsapp.png"></a>
+    <a href="/about" class="btn btn-primary">Warning</a>
+
+    <div class="accordion" id="accordionExample">
+      <!-- Accordion öğeleri aynı şekilde bırakıldı -->
+    </div>
+    <div class="alert alert-info" role="alert">A simple info alert—check it out!</div>
+</div>
+</body>
+</html>
