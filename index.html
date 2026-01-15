@@ -14,6 +14,7 @@
             --neon-purple: #bc13fe;
             --neon-green: #39ff14;
             --glass-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -22,50 +23,57 @@
             font-family: 'Rajdhani', sans-serif;
             background-image: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
             overflow-x: hidden;
+            padding-top: 50px;
         }
 
-        h1, h2 { font-family: 'Orbitron', sans-serif; }
+        h1, h2 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
 
-        /* Profil Fotoğrafı */
+        /* Profil Fotoğrafı - Yeni Etkileşim */
         #profileImage {
             height: 150px;
             width: 150px;
             border-radius: 50%;
             border: 3px solid var(--neon-blue);
             box-shadow: 0 0 15px var(--neon-blue);
-            transition: 0.5s;
+            transition: all 0.2s ease;
             object-fit: cover;
+            cursor: pointer;
         }
 
-        #profileImage:hover {
-            transform: scale(1.1) rotateY(180deg);
-            box-shadow: 0 0 30px var(--neon-purple);
+        /* Tıklanınca veya basılınca küçülme ve renk değişimi */
+        #profileImage:active {
+            transform: scale(0.92);
             border-color: var(--neon-purple);
+            box-shadow: 0 0 25px var(--neon-purple);
+        }
+        
+        #profileImage:hover {
+            box-shadow: 0 0 25px var(--neon-blue);
         }
 
-        /* Neon Kartlar */
+        /* Neon Kart Tasarımı */
         section {
             background: var(--glass-bg);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--border-color);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 25px;
             position: relative;
             backdrop-filter: blur(10px);
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         section:hover {
             border-color: var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
         }
 
-        /* Köşe Süsleri */
+        /* Köşe Süsü */
         section::after {
             content: "";
             position: absolute;
             top: -1px; right: -1px;
-            width: 20px; height: 20px;
+            width: 25px; height: 25px;
             border-top: 2px solid var(--neon-blue);
             border-right: 2px solid var(--neon-blue);
             border-radius: 0 15px 0 0;
@@ -82,18 +90,19 @@
         .badge-skill {
             border: 1px solid var(--neon-green);
             color: var(--neon-green);
-            padding: 4px 12px;
-            border-radius: 4px;
+            text-shadow: 0 0 5px var(--neon-green);
+            padding: 5px 15px;
+            border-radius: 5px;
             margin: 5px;
-            display: inline-block;
             font-size: 0.85rem;
+            display: inline-block;
         }
 
         .video-wrapper {
             border: 1px solid var(--neon-purple);
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
+            box-shadow: 0 0 25px rgba(188, 19, 254, 0.2);
         }
 
         .social-links {
@@ -102,26 +111,42 @@
             gap: 20px;
             list-style: none;
             padding: 20px 0;
+            flex-wrap: wrap;
         }
 
         .social-links a {
             color: #fff;
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 8px 16px;
-            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
             transition: 0.3s;
+            text-transform: uppercase;
         }
 
         .social-links a:hover {
             border-color: var(--neon-purple);
-            box-shadow: 0 0 10px var(--neon-purple);
+            color: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
         }
 
+        footer {
+            margin-top: 50px;
+            padding-bottom: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* WhatsApp Butonu Konum Ayarı - Sosyal linkleri engellememesi için yukarı çekildi */
         #whatsappBtn {
             position: fixed;
-            bottom: 30px; right: 30px;
+            bottom: 100px; /* YouTube linkinin üstüne gelmemesi için yükseltildi */
+            right: 30px;
             z-index: 1000;
+            transition: 0.3s ease;
+        }
+        
+        #whatsappBtn:hover {
+            transform: scale(1.15);
         }
     </style>
 </head>
@@ -130,15 +155,15 @@
 <div class="container my-5">
     <header class="text-center mb-5">
         <img src="img/profile.jpeg" alt="Zeki Şahmaran" id="profileImage" class="mb-4">
-        <h1 class="display-5">ZEKİ ŞAHMARAN</h1>
-        <p class="text-muted">✆ +90 533 889 19 18 - ✉ zekisahmaran2409@gmail.com</p>
+        <h1 class="display-4 fw-bold">ZEKİ ŞAHMARAN</h1>
+        <p class="text-muted">✉ zekisahmaran2409@gmail.com</p>
     </header>
 
     <div class="row">
         <div class="col-lg-6">
             <section>
                 <h2>Özet</h2>
-                <p>Ben Zeki. Futbol oynamayı seven biriyim. Türk Maarif Koleji öğrencisiyim ve Python ile Robotik Kodlama üzerine çalışmalar yapıyorum.</p>
+                <p>ben Zeki.futbol oynamayı seven biriyim. Türk Maarif Koleji öğrencisiyim. Python ve Robotik Kodlama üzerine çalışmalar yapıyorum.</p>
             </section>
 
             <section>
@@ -165,10 +190,12 @@
         <div class="col-lg-6">
             <section>
                 <h2>Yetenekler</h2>
-                <span class="badge-skill">Robotik Kodlama</span>
-                <span class="badge-skill">Python</span>
-                <span class="badge-skill">Donanım Tamiri</span>
-                <span class="badge-skill">Web Tasarım</span>
+                <div class="d-flex flex-wrap">
+                    <span class="badge-skill">Robotik Kodlama</span>
+                    <span class="badge-skill">Python</span>
+                    <span class="badge-skill">Web Tasarım</span>
+                    <span class="badge-skill">Teknik Servis</span>
+                </div>
             </section>
 
             <section>
@@ -192,9 +219,9 @@
     </div>
 
     <section>
-        <h2 class="text-center">Tanıtım Videosu</h2>
+        <h2 class="text-center">Tanıtım & Medya</h2>
         <div class="video-wrapper ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/CEnIXtpEZ34" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/CEnIXtpEZ34" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -205,11 +232,12 @@
             <li><a href="https://www.facebook.com/Zeki.sahmaran" target="_blank">Facebook</a></li>
             <li><a href="https://www.youtube.com/@zeki-ş09" target="_blank">YouTube</a></li>
         </ul>
+        <p class="text-center text-muted mt-3" style="font-size: 0.85rem;">&copy; 2026 Zeki Şahmaran. Tüm hakları saklıdır.</p>
     </footer>
 </div>
 
 <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
-    <img src="img/whatsapp.png" width="60">
+    <img src="img/whatsapp.png" width="60" alt="WhatsApp">
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
