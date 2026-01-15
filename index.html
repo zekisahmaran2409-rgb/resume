@@ -13,6 +13,7 @@
             --neon-blue: #00f3ff;
             --neon-purple: #bc13fe;
             --neon-green: #39ff14;
+            --neon-yellow: #fefe33;
             --glass-bg: rgba(255, 255, 255, 0.03);
             --border-color: rgba(255, 255, 255, 0.1);
         }
@@ -28,27 +29,22 @@
 
         h1, h2 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
 
-        /* Profil Fotoğrafı - Yeni Etkileşim */
+        /* Profil Fotoğrafı - Dinamik Renk ve Basılma Efekti */
         #profileImage {
             height: 150px;
             width: 150px;
             border-radius: 50%;
             border: 3px solid var(--neon-blue);
             box-shadow: 0 0 15px var(--neon-blue);
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             object-fit: cover;
             cursor: pointer;
+            user-select: none;
         }
 
-        /* Tıklanınca veya basılınca küçülme ve renk değişimi */
+        /* Basıldığında küçülme (Scale) */
         #profileImage:active {
-            transform: scale(0.92);
-            border-color: var(--neon-purple);
-            box-shadow: 0 0 25px var(--neon-purple);
-        }
-        
-        #profileImage:hover {
-            box-shadow: 0 0 25px var(--neon-blue);
+            transform: scale(0.9);
         }
 
         /* Neon Kart Tasarımı */
@@ -68,7 +64,6 @@
             box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
         }
 
-        /* Köşe Süsü */
         section::after {
             content: "";
             position: absolute;
@@ -105,10 +100,11 @@
             box-shadow: 0 0 25px rgba(188, 19, 254, 0.2);
         }
 
+        /* Sosyal Linkler ve Logolar */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             list-style: none;
             padding: 20px 0;
             flex-wrap: wrap;
@@ -118,43 +114,50 @@
             color: #fff;
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border: 1px solid var(--border-color);
             transition: 0.3s;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .social-links img {
+            width: 22px;
+            height: 22px;
         }
 
         .social-links a:hover {
             border-color: var(--neon-purple);
             color: var(--neon-purple);
             box-shadow: 0 0 15px var(--neon-purple);
+            transform: translateY(-3px);
         }
 
         footer {
-            margin-top: 50px;
-            padding-bottom: 30px;
+            margin-top: 30px;
+            padding-bottom: 40px;
             border-top: 1px solid var(--border-color);
         }
 
-        /* WhatsApp Butonu Konum Ayarı - Sosyal linkleri engellememesi için yukarı çekildi */
+        /* WhatsApp Butonu (Sabit Alt Köşe) */
         #whatsappBtn {
             position: fixed;
-            bottom: 100px; /* YouTube linkinin üstüne gelmemesi için yükseltildi */
+            bottom: 30px;
             right: 30px;
             z-index: 1000;
             transition: 0.3s ease;
         }
-        
-        #whatsappBtn:hover {
-            transform: scale(1.15);
-        }
+        #whatsappBtn:hover { transform: scale(1.15); }
     </style>
 </head>
 <body>
 
 <div class="container my-5">
     <header class="text-center mb-5">
-        <img src="img/profile.jpeg" alt="Zeki Şahmaran" id="profileImage" class="mb-4">
+        <img src="img/profile.jpeg" alt="Zeki Şahmaran" id="profileImage" class="mb-4" onclick="changeNeonColor()">
         <h1 class="display-4 fw-bold">ZEKİ ŞAHMARAN</h1>
         <p class="text-muted">✉ zekisahmaran2409@gmail.com</p>
     </header>
@@ -225,13 +228,14 @@
         </div>
     </section>
 
+    <div class="social-links mt-4">
+        <a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png" alt="GitHub"> GitHub</a>
+        <a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png" alt="Instagram"> Instagram</a>
+        <a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png" alt="Facebook"> Facebook</a>
+        <a href="https://www.youtube.com/@zeki-ş09" target="_blank"><img src="img/youtube.png" alt="YouTube"> YouTube</a>
+    </div>
+
     <footer>
-        <ul class="social-links">
-            <li><a href="https://github.com/zekisahmaran2409-rgb" target="_blank">GitHub</a></li>
-            <li><a href="https://instagram.com/zekisahmaran" target="_blank">Instagram</a></li>
-            <li><a href="https://www.facebook.com/Zeki.sahmaran" target="_blank">Facebook</a></li>
-            <li><a href="https://www.youtube.com/@zeki-ş09" target="_blank">YouTube</a></li>
-        </ul>
         <p class="text-center text-muted mt-3" style="font-size: 0.85rem;">&copy; 2026 Zeki Şahmaran. Tüm hakları saklıdır.</p>
     </footer>
 </div>
@@ -239,6 +243,24 @@
 <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
     <img src="img/whatsapp.png" width="60" alt="WhatsApp">
 </a>
+
+<script>
+    let colorIndex = 0;
+    const colors = [
+        { border: '#00f3ff', shadow: '0 0 20px #00f3ff' }, // Mavi
+        { border: '#bc13fe', shadow: '0 0 20px #bc13fe' }, // Mor
+        { border: '#39ff14', shadow: '0 0 20px #39ff14' }, // Yeşil
+        { border: '#fefe33', shadow: '0 0 20px #fefe33' }  // Sarı
+    ];
+
+    function changeNeonColor() {
+        const img = document.getElementById('profileImage');
+        colorIndex = (colorIndex + 1) % colors.length;
+        
+        img.style.borderColor = colors[colorIndex].border;
+        img.style.boxShadow = colors[colorIndex].shadow;
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
