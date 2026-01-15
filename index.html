@@ -1,267 +1,234 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zeki Şahmaran | Portfolyo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-dark: #050505;
-            --neon-blue: #00f3ff;
-            --neon-purple: #bc13fe;
-            --neon-green: #39ff14;
-            --neon-yellow: #fefe33;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zeki Şahmaran | Portfolyo</title>
 
-        body {
-            background-color: var(--bg-dark);
-            color: #ede7ed;
-            font-family: 'Rajdhani', sans-serif;
-            background-image: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
-            overflow-x: hidden;
-            padding-top: 50px;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
-        h1, h2 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
+<style>
+:root{
+--bg:#070B14;
+--glass:rgba(255,255,255,0.05);
+--border:rgba(255,255,255,0.12);
+--neon:#00F5FF;
+--accent:#9D7CFF;
+--soft-text:#C9D1D9;
+}
 
-        /* Profil Fotoğrafı - Dinamik Renk ve Basılma Efekti */
-        #profileImage {
-            height: 150px;
-            width: 150px;
-            border-radius: 50%;
-            border: 3px solid var(--neon-blue);
-            box-shadow: 0 0 15px var(--neon-blue);
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            object-fit: cover;
-            cursor: pointer;
-            user-select: none;
-        }
+body{
+background:radial-gradient(circle at top,#0E1525,#05070D);
+color:var(--soft-text);
+font-family:'Rajdhani',sans-serif;
+padding-top:50px;
+}
 
-        /* Basıldığında küçülme (Scale) */
-        #profileImage:active {
-            transform: scale(0.9);
-        }
+h1,h2{
+font-family:'Orbitron',sans-serif;
+letter-spacing:1.5px;
+}
 
-        /* Neon Kart Tasarımı */
-        section {
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            position: relative;
-            backdrop-filter: blur(10px);
-            transition: 0.3s ease;
-        }
+h1{
+text-shadow:0 0 12px rgba(0,245,255,0.35);
+}
 
-        section:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
-        }
+#profileImage{
+width:150px;
+height:150px;
+border-radius:50%;
+border:2px solid var(--neon);
+box-shadow:0 0 25px rgba(0,245,255,0.35);
+transition:0.25s ease;
+cursor:pointer;
+}
 
-        section::after {
-            content: "";
-            position: absolute;
-            top: -1px; right: -1px;
-            width: 25px; height: 25px;
-            border-top: 2px solid var(--neon-blue);
-            border-right: 2px solid var(--neon-blue);
-            border-radius: 0 15px 0 0;
-        }
+#profileImage:active{transform:scale(0.92);}
 
-        h2 {
-            font-size: 1.1rem;
-            color: var(--neon-blue);
-            text-shadow: 0 0 8px var(--neon-blue);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
+section{
+background:var(--glass);
+border:1px solid var(--border);
+border-radius:16px;
+padding:26px;
+margin-bottom:26px;
+backdrop-filter:blur(14px);
+transition:0.3s ease;
+}
 
-        .badge-skill {
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            text-shadow: 0 0 5px var(--neon-green);
-            padding: 5px 15px;
-            border-radius: 5px;
-            margin: 5px;
-            font-size: 0.85rem;
-            display: inline-block;
-        }
+section:hover{
+border-color:var(--neon);
+box-shadow:0 10px 35px rgba(0,245,255,0.08);
+}
 
-        .video-wrapper {
-            border: 1px solid var(--neon-purple);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(188, 19, 254, 0.2);
-        }
+h2{
+font-size:1rem;
+color:var(--neon);
+text-shadow:0 0 6px rgba(0,245,255,0.6);
+margin-bottom:18px;
+}
 
-        /* Sosyal Linkler ve Logolar */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            list-style: none;
-            padding: 20px 0;
-            flex-wrap: wrap;
-        }
+.badge-skill{
+border:1px solid var(--accent);
+color:var(--accent);
+padding:6px 16px;
+margin:6px;
+border-radius:6px;
+font-size:0.85rem;
+background:rgba(157,124,255,0.05);
+}
 
-        .social-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 10px 18px;
-            border: 1px solid var(--border-color);
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.02);
-        }
+.video-wrapper{
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 35px rgba(157,124,255,0.25);
+}
 
-        .social-links img {
-            width: 22px;
-            height: 22px;
-        }
+.social-links{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+padding:20px 0;
+}
 
-        .social-links a:hover {
-            border-color: var(--neon-purple);
-            color: var(--neon-purple);
-            box-shadow: 0 0 15px var(--neon-purple);
-            transform: translateY(-3px);
-        }
+.social-links a{
+text-decoration:none;
+color:#fff;
+padding:10px 18px;
+border-radius:10px;
+border:1px solid var(--border);
+background:rgba(255,255,255,0.03);
+display:flex;
+align-items:center;
+gap:10px;
+transition:0.3s ease;
+}
 
-        footer {
-            margin-top: 30px;
-            padding-bottom: 40px;
-            border-top: 1px solid var(--border-color);
-        }
+.social-links a:hover{
+border-color:var(--accent);
+box-shadow:0 0 18px rgba(157,124,255,0.5);
+transform:translateY(-4px);
+}
 
-        /* WhatsApp Butonu (Sabit Alt Köşe) */
-        #whatsappBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            transition: 0.3s ease;
-        }
-        #whatsappBtn:hover { transform: scale(1.15); }
-    </style>
+.social-links img{width:22px;height:22px;}
+
+#whatsappBtn{
+position:fixed;
+bottom:30px;
+right:30px;
+transition:0.3s;
+}
+#whatsappBtn:hover{transform:scale(1.15);}
+</style>
 </head>
+
 <body>
-
 <div class="container my-5">
-    <header class="text-center mb-5">
-        <img src="img/profile.jpeg" alt="Zeki Şahmaran" id="profileImage" class="mb-4" onclick="changeNeonColor()">
-        <h1 class="display-4 fw-bold">ZEKİ ŞAHMARAN</h1>
-        <p class="text-muted">✉ zekisahmaran2409@gmail.com</p>
-    </header>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <section>
-                <h2>Özet</h2>
-                <p>ben Zeki.futbol oynamayı seven biriyim. Türk Maarif Koleji öğrencisiyim. Python ve Robotik Kodlama üzerine çalışmalar yapıyorum.</p>
-            </section>
+<header class="text-center mb-5">
+<img src="img/profile.jpeg" id="profileImage" class="mb-4" onclick="changeNeonColor()">
+<h1 class="display-4 fw-bold">ZEKİ ŞAHMARAN</h1>
+<p class="text-muted">✉ zekisahmaran2409@gmail.com</p>
+</header>
 
-            <section>
-                <h2>Eğitim</h2>
-                <p><strong>Türk Maarif Koleji</strong> (2020 - Devam Ediyor)</p>
-                <p><strong>Ağırdağ İlkokulu</strong> (2014 - 2020)</p>
-            </section>
+<div class="row">
+<div class="col-lg-6">
 
-            <section>
-                <h2>Deneyim</h2>
-                <p>• Suva Medya - Web Geliştirme Stajı</p>
-                <p>• Whitehat Computer - Teknik Servis Stajı</p>
-                <p>• Deniz Plaza - Satış Danışmanı</p>
-            </section>
+<section>
+<h2>Özet</h2>
+<p>ben Zeki.futbol oynamayı seven biriyim. Türk Maarif Koleji öğrencisiyim. Python ve Robotik Kodlama üzerine çalışmalar yapıyorum.</p>
+</section>
 
-            <section>
-                <h2>Diller</h2>
-                <p>Türkçe - Ana Dil</p>
-                <p>İngilizce - İyi Seviye</p>
-                <p>Almanca - Temel Seviye</p>
-            </section>
-        </div>
+<section>
+<h2>Eğitim</h2>
+<p><strong>Türk Maarif Koleji</strong> (2020 - Devam Ediyor)</p>
+<p><strong>Ağırdağ İlkokulu</strong> (2014 - 2020)</p>
+</section>
 
-        <div class="col-lg-6">
-            <section>
-                <h2>Yetenekler</h2>
-                <div class="d-flex flex-wrap">
-                    <span class="badge-skill">Robotik Kodlama</span>
-                    <span class="badge-skill">Python</span>
-                    <span class="badge-skill">Web Tasarım</span>
-                    <span class="badge-skill">Teknik Servis</span>
-                </div>
-            </section>
+<section>
+<h2>Deneyim</h2>
+<p>• Suva Medya - Web Geliştirme Stajı</p>
+<p>• Whitehat Computer - Teknik Servis Stajı</p>
+<p>• Deniz Plaza - Satış Danışmanı</p>
+</section>
 
-            <section>
-                <h2>Ödüller</h2>
-                <p>🏆 TMKATHLON - Takım Olarak Üçüncülük</p>
-                <p>⚽ Futsal Turnuvası - İkincilik</p>
-            </section>
+<section>
+<h2>Diller</h2>
+<p>🇹🇷 Türkçe - Ana Dil</p>
+<p>🇬🇧 İngilizce - İyi Seviye</p>
+<p>🇩🇪 Almanca - Temel Seviye</p>
+</section>
 
-            <section>
-                <h2>Gönüllülük / Kulüpler</h2>
-                <p>• Türk Maarif Koleji - Kitap Kulübü</p>
-                <p>• Türk Maarif Koleji - Robotik Kulübü</p>
-                <p>• Türk Maarif Koleji - Futsal Takımı</p>
-            </section>
+</div>
 
-            <section>
-                <h2>Hobiler & İlgi Alanları</h2>
-                <p>Futbol, Drift, Rally, Teknoloji Takibi</p>
-            </section>
-        </div>
-    </div>
+<div class="col-lg-6">
 
-    <section>
-        <h2 class="text-center">Tanıtım & Medya</h2>
-        <div class="video-wrapper ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/CEnIXtpEZ34" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
+<section>
+<h2>Yetenekler</h2>
+<div class="d-flex flex-wrap">
+<span class="badge-skill">Robotik Kodlama</span>
+<span class="badge-skill">Python</span>
+<span class="badge-skill">Web Tasarım</span>
+<span class="badge-skill">Teknik Servis</span>
+</div>
+</section>
 
-    <div class="social-links mt-4">
-        <a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png" alt="GitHub"> GitHub</a>
-        <a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png" alt="Instagram"> Instagram</a>
-        <a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png" alt="Facebook"> Facebook</a>
-        <a href="https://www.youtube.com/@zeki-ş09" target="_blank"><img src="img/youtube.png" alt="YouTube"> YouTube</a>
-    </div>
+<section>
+<h2>Ödüller</h2>
+<p>🏆 TMKATHLON - Takım Olarak Üçüncülük</p>
+<p>⚽ Futsal Turnuvası - İkincilik</p>
+</section>
 
-    <footer>
-        <p class="text-center text-muted mt-3" style="font-size: 0.85rem;">&copy; 2026 Zeki Şahmaran. Tüm hakları saklıdır.</p>
-    </footer>
+<section>
+<h2>Gönüllülük / Kulüpler</h2>
+<p>• Türk Maarif Koleji - Kitap Kulübü</p>
+<p>• Türk Maarif Koleji - Robotik Kulübü</p>
+<p>• Türk Maarif Koleji - Futsal Takımı</p>
+</section>
+
+<section>
+<h2>Hobiler & İlgi Alanları</h2>
+<p>⚽ Futbol, 🏎 Drift, 🏁 Rally, 💻 Teknoloji Takibi</p>
+</section>
+
+</div>
+</div>
+
+<section>
+<h2 class="text-center">Tanıtım & Medya</h2>
+<div class="video-wrapper ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/CEnIXtpEZ34" allowfullscreen></iframe>
+</div>
+</section>
+
+<div class="social-links">
+<a href="https://github.com/zekisahmaran2409-rgb" target="_blank"><img src="img/github.png">GitHub</a>
+<a href="https://instagram.com/zekisahmaran" target="_blank"><img src="img/instagram.png">Instagram</a>
+<a href="https://www.facebook.com/Zeki.sahmaran" target="_blank"><img src="img/facebook.png">Facebook</a>
+<a href="https://www.youtube.com/@zeki-ş09" target="_blank"><img src="img/youtube.png">YouTube</a>
+</div>
+
+<footer>
+<p class="text-center text-muted mt-3" style="font-size:0.85rem;">&copy; 2026 Zeki Şahmaran. Tüm hakları saklıdır.</p>
+</footer>
+
 </div>
 
 <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
-    <img src="img/whatsapp.png" width="60" alt="WhatsApp">
+<img src="img/whatsapp.png" width="60">
 </a>
 
 <script>
-    let colorIndex = 0;
-    const colors = [
-        { border: '#00f3ff', shadow: '0 0 20px #00f3ff' }, // Mavi
-        { border: '#bc13fe', shadow: '0 0 20px #bc13fe' }, // Mor
-        { border: '#39ff14', shadow: '0 0 20px #39ff14' }, // Yeşil
-        { border: '#fefe33', shadow: '0 0 20px #fefe33' }  // Sarı
-    ];
-
-    function changeNeonColor() {
-        const img = document.getElementById('profileImage');
-        colorIndex = (colorIndex + 1) % colors.length;
-        
-        img.style.borderColor = colors[colorIndex].border;
-        img.style.boxShadow = colors[colorIndex].shadow;
-    }
+let colorIndex=0;
+const colors=['#00F5FF','#9D7CFF','#39FF14','#FEF233'];
+function changeNeonColor(){
+const img=document.getElementById('profileImage');
+colorIndex=(colorIndex+1)%colors.length;
+img.style.borderColor=colors[colorIndex];
+img.style.boxShadow=0 0 25px ${colors[colorIndex]};
+}
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
