@@ -6,146 +6,130 @@
 <title>Zeki Şahmaran | Portfolyo</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
---bg:#070B14;
---glass:rgba(255,255,255,0.06);
---border:rgba(255,255,255,0.14);
---neon:#00F5FF;
---accent:#9D7CFF;
---text:#C9D1D9;
+  --bg:#070B14;
+  --border:rgba(255,255,255,0.18);
+  --neon:#00F5FF;
+  --accent:#9D7CFF;
+  --text:#E6EDF3;
 }
 
 body{
-background:radial-gradient(circle at top,#0E1525,#05070D);
-color:var(--text);
-font-family:'Rajdhani',sans-serif;
-padding-top:50px;
+  background:radial-gradient(circle at top,#0E1525,#05070D);
+  color:var(--text);
+  font-family:'Rajdhani',sans-serif;
+  padding-top:50px;
 }
 
 h1,h2{
-font-family:'Orbitron',sans-serif;
-letter-spacing:1.4px;
+  font-family:'Orbitron',sans-serif;
+  letter-spacing:1.4px;
 }
 
 h1{
-text-shadow:0 0 14px rgba(0,245,255,0.4);
+  text-shadow:0 0 14px rgba(0,245,255,0.4);
 }
 
 h2{
-font-size:1.2rem;
-color:var(--neon);
-margin-bottom:18px;
-text-shadow:0 0 8px rgba(0,245,255,0.5);
+  font-size:1.2rem;
+  color:var(--neon);
+  margin-bottom:18px;
+  text-shadow:0 0 8px rgba(0,245,255,0.5);
 }
 
-/* Profil Resmi Düzeltmesi */
+/* PROFİL FOTO */
 #profileImage{
-width:150px;
-height:150px;
-border-radius:50%;
-/* Resmin basık görünmesini engelleyen kritik komutlar: */
-object-fit:cover;
-object-position:center;
-aspect-ratio: 1 / 1; 
-/* ---------------------------------------------- */
-border:2px solid var(--neon);
-box-shadow:0 0 28px rgba(0,245,255,0.35);
-cursor:pointer;
-transition:0.25s ease;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  aspect-ratio:1/1;
+  border:2px solid var(--neon);
+  box-shadow:0 0 28px rgba(0,245,255,0.35);
+  cursor:pointer;
+  transition:0.25s ease;
 }
-#profileImage:active{
-transform:scale(0.92);
-}
+#profileImage:active{transform:scale(0.95);}
 
-/* Bölümler */
+/* SECTION – KRİTİK DÜZELTME */
 section{
-background:var(--glass);
-border:1px solid var(--border);
-border-radius:16px;
-padding:26px;
-margin-bottom:26px;
-backdrop-filter:blur(14px);
-transition:0.3s ease;
-animation:fadeUp 0.6s ease forwards;
+  background:linear-gradient(
+    180deg,
+    rgba(20,25,50,0.9),
+    rgba(10,15,30,0.95)
+  );
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:26px;
+  margin-bottom:26px;
+  opacity:1;
 }
 
-section:hover{
-border-color:var(--neon);
-box-shadow:0 10px 36px rgba(0,245,255,0.12);
-}
+section p{color:var(--text);}
 
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-/* Yetenekler */
+/* YETENEKLER */
 .badge-skill{
-border:1px solid var(--accent);
-color:var(--accent);
-padding:6px 16px;
-margin:6px;
-border-radius:8px;
-font-size:0.85rem;
-background:rgba(157,124,255,0.08);
-display:inline-block;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  padding:6px 16px;
+  margin:6px;
+  border-radius:8px;
+  font-size:0.85rem;
+  background:rgba(157,124,255,0.12);
 }
 
-/* Video */
+/* VIDEO */
 .video-wrapper{
-border-radius:16px;
-overflow:hidden;
-box-shadow:0 0 40px rgba(157,124,255,0.25);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 0 40px rgba(157,124,255,0.35);
 }
 
-/* Sosyal Linkler */
+/* SOSYAL */
 .social-links{
-display:flex;
-justify-content:center;
-gap:16px;
-flex-wrap:wrap;
-padding:22px 0;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+  padding:22px 0;
 }
 
 .social-links a{
-text-decoration:none;
-color:#fff;
-padding:10px 18px;
-border-radius:10px;
-border:1px solid var(--border);
-background:rgba(255,255,255,0.04);
-display:flex;
-align-items:center;
-gap:10px;
-transition:0.3s ease;
+  text-decoration:none;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.06);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:0.3s ease;
 }
 
 .social-links a:hover{
-border-color:var(--accent);
-box-shadow:0 0 18px rgba(157,124,255,0.55);
-transform:translateY(-4px);
+  border-color:var(--accent);
+  box-shadow:0 0 18px rgba(157,124,255,0.6);
+  transform:translateY(-4px);
 }
 
 .social-links img{
-width:22px;
-height:22px;
+  width:22px;
+  height:22px;
 }
 
-/* WhatsApp */
+/* WHATSAPP */
 #whatsappBtn{
-position:fixed;
-bottom:28px;
-right:28px;
-transition:0.3s;
-z-index: 1000;
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  z-index:1000;
+  transition:0.3s;
 }
-#whatsappBtn:hover{
-transform:scale(1.15);
-}
+#whatsappBtn:hover{transform:scale(1.15);}
 </style>
 </head>
 
@@ -153,13 +137,13 @@ transform:scale(1.15);
 <div class="container my-5">
 
 <header class="text-center mb-5">
-<img src="img/profile.jpeg" id="profileImage" alt="Zeki Şahmaran Profil Fotoğrafı" onclick="changeNeonColor()">
-<h1 class="display-4 fw-bold mt-4">ZEKİ ŞAHMARAN</h1>
-<p class="text-muted mt-2">
-✉ <a href="mailto:zekisahmaran2409@gmail.com" class="text-muted text-decoration-none">
-zekisahmaran2409@gmail.com
-</a>
-</p>
+  <img src="img/profile.jpeg" id="profileImage" alt="Zeki Şahmaran">
+  <h1 class="display-4 fw-bold mt-4">ZEKİ ŞAHMARAN</h1>
+  <p>
+    ✉ <a href="mailto:zekisahmaran2409@gmail.com" style="color:#9aa4b2;text-decoration:none;">
+    zekisahmaran2409@gmail.com
+    </a>
+  </p>
 </header>
 
 <div class="row">
@@ -200,32 +184,30 @@ web geliştirme alanlarında kendimi sürekli geliştirmekteyim.
 
 <section>
 <h2>Yetenekler</h2>
-<div class="d-flex flex-wrap">
 <span class="badge-skill">Robotik Kodlama</span>
 <span class="badge-skill">Python</span>
 <span class="badge-skill">Web Tasarımı</span>
 <span class="badge-skill">Teknik Servis</span>
-</div>
 </section>
 
 <section>
 <h2>Projeler</h2>
-<p>• Python ile mini otomasyon uygulamaları</p>
-<p>• Robotik kodlama ile çizgi izleyen robot</p>
-<p>• Kişisel portfolyo web sitesi</p>
+<p>• Python mini otomasyonlar</p>
+<p>• Çizgi izleyen robot</p>
+<p>• Kişisel portfolyo sitesi</p>
 </section>
 
 <section>
 <h2>Ödüller</h2>
 <p>🏆 TMKATHLON — Takım Üçüncülüğü</p>
-<p>⚽ Okullar Arası Futsal Turnuvası — İkincilik</p>
+<p>⚽ Okullar Arası Futsal — İkincilik</p>
 </section>
 
 <section>
-<h2>Kulüpler & Gönüllülük</h2>
-<p>• Türk Maarif Koleji — Robotik Kulübü</p>
-<p>• Türk Maarif Koleji — Kitap Kulübü</p>
-<p>• Türk Maarif Koleji — Futsal Takımı</p>
+<h2>Kulüpler</h2>
+<p>• Robotik Kulübü</p>
+<p>• Kitap Kulübü</p>
+<p>• Futsal Takımı</p>
 </section>
 
 </div>
@@ -234,27 +216,27 @@ web geliştirme alanlarında kendimi sürekli geliştirmekteyim.
 <section>
 <h2 class="text-center">Tanıtım & Medya</h2>
 <div class="video-wrapper ratio ratio-16x9">
-<iframe src="https://www.youtube.com/embed/CEnIXtpEZ34" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/CEnIXtpEZ34" allowfullscreen></iframe>
 </div>
 </section>
 
 <div class="social-links">
 <a href="https://github.com/zekisahmaran2409-rgb" target="_blank">
-<img src="img/github.png" alt="GitHub">GitHub
+<img src="img/github.png">GitHub
 </a>
 <a href="https://instagram.com/zekisahmaran" target="_blank">
-<img src="img/instagram.png" alt="Instagram">Instagram
+<img src="img/instagram.png">Instagram
 </a>
 <a href="https://www.facebook.com/Zeki.sahmaran" target="_blank">
-<img src="img/facebook.png" alt="Facebook">Facebook
+<img src="img/facebook.png">Facebook
 </a>
 <a href="https://www.youtube.com/@zeki-ş09" target="_blank">
-<img src="img/youtube.png" alt="YouTube">YouTube
+<img src="img/youtube.png">YouTube
 </a>
 </div>
 
 <footer>
-<p class="text-center text-muted mt-3" style="font-size:0.85rem;">
+<p class="text-center" style="color:#9aa4b2;font-size:0.85rem;">
 © 2026 Zeki Şahmaran. Tüm hakları saklıdır.
 </p>
 </footer>
@@ -262,20 +244,8 @@ web geliştirme alanlarında kendimi sürekli geliştirmekteyim.
 </div>
 
 <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
-<img src="img/whatsapp.png" width="60" alt="WhatsApp">
+<img src="img/whatsapp.png" width="60">
 </a>
-
-<script>
-let colorIndex = 0;
-const colors = ['#00F5FF','#9D7CFF','#39FF14','#FEF233'];
-
-function changeNeonColor(){
-const img = document.getElementById('profileImage');
-colorIndex = (colorIndex + 1) % colors.length;
-img.style.borderColor = colors[colorIndex];
-img.style.boxShadow = `0 0 28px ${colors[colorIndex]}`;
-}
-</script>
 
 </body>
 </html>
