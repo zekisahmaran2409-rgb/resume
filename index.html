@@ -1,152 +1,281 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Zeki Şahmaran | Portfolyo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zeki Şahmaran | Portfolyo</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg: #070B14;
-            --glass: rgba(255, 255, 255, 0.06);
-            --border: rgba(255, 255, 255, 0.14);
-            --neon: #00F5FF;
-            --accent: #9D7CFF;
-            --text: #C9D1D9;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
-        body {
-            background: radial-gradient(circle at top, #0E1525, #05070D);
-            color: var(--text);
-            font-family: 'Rajdhani', sans-serif;
-            padding-top: 50px;
-            min-height: 100vh;
-        }
+<style>
+:root{
+--bg:#070B14;
+--glass:rgba(255,255,255,0.06);
+--border:rgba(255,255,255,0.14);
+--neon:#00F5FF;
+--accent:#9D7CFF;
+--text:#C9D1D9;
+}
 
-        h1, h2 {
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1.4px;
-        }
+body{
+background:radial-gradient(circle at top,#0E1525,#05070D);
+color:var(--text);
+font-family:'Rajdhani',sans-serif;
+padding-top:50px;
+}
 
-        h1 {
-            text-shadow: 0 0 14px rgba(0, 245, 255, 0.4);
-        }
+h1,h2{
+font-family:'Orbitron',sans-serif;
+letter-spacing:1.4px;
+}
 
-        h2 {
-            font-size: 1.2rem;
-            color: var(--neon);
-            margin-bottom: 18px;
-            text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
-        }
+h1{
+text-shadow:0 0 14px rgba(0,245,255,0.4);
+}
 
-        #profileImage {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            /* Resmin yanlardan basılmasını engelleyen kısım burası */
-            object-fit: cover;
-            object-position: center;
-            aspect-ratio: 1 / 1; 
-            border: 2px solid var(--neon);
-            box-shadow: 0 0 28px rgba(0, 245, 255, 0.35);
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
+h2{
+font-size:1.2rem;
+color:var(--neon);
+margin-bottom:18px;
+text-shadow:0 0 8px rgba(0,245,255,0.5);
+}
 
-        section {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 26px;
-            margin-bottom: 26px;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            transition: 0.3s ease;
-        }
+/* Profil Resmi Düzeltmesi */
+#profileImage{
+width:150px;
+height:150px;
+border-radius:50%;
+/* Resmin basık görünmesini engelleyen kritik komutlar: */
+object-fit:cover;
+object-position:center;
+aspect-ratio: 1 / 1; 
+/* ---------------------------------------------- */
+border:2px solid var(--neon);
+box-shadow:0 0 28px rgba(0,245,255,0.35);
+cursor:pointer;
+transition:0.25s ease;
+}
+#profileImage:active{
+transform:scale(0.92);
+}
 
-        .video-wrapper {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(157, 124, 255, 0.25);
-        }
+/* Bölümler */
+section{
+background:var(--glass);
+border:1px solid var(--border);
+border-radius:16px;
+padding:26px;
+margin-bottom:26px;
+backdrop-filter:blur(14px);
+transition:0.3s ease;
+animation:fadeUp 0.6s ease forwards;
+}
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            padding: 22px 0;
-        }
+section:hover{
+border-color:var(--neon);
+box-shadow:0 10px 36px rgba(0,245,255,0.12);
+}
 
-        .social-links a {
-            text-decoration: none;
-            color: #fff;
-            padding: 10px 18px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s ease;
-        }
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
 
-        .social-links a:hover {
-            background: var(--glass);
-            border-color: var(--neon);
-            transform: translateY(-3px);
-        }
+/* Yetenekler */
+.badge-skill{
+border:1px solid var(--accent);
+color:var(--accent);
+padding:6px 16px;
+margin:6px;
+border-radius:8px;
+font-size:0.85rem;
+background:rgba(157,124,255,0.08);
+display:inline-block;
+}
 
-        #whatsappBtn {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
+/* Video */
+.video-wrapper{
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 40px rgba(157,124,255,0.25);
+}
 
-        #whatsappBtn:hover {
-            transform: scale(1.1);
-        }
-    </style>
+/* Sosyal Linkler */
+.social-links{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+padding:22px 0;
+}
+
+.social-links a{
+text-decoration:none;
+color:#fff;
+padding:10px 18px;
+border-radius:10px;
+border:1px solid var(--border);
+background:rgba(255,255,255,0.04);
+display:flex;
+align-items:center;
+gap:10px;
+transition:0.3s ease;
+}
+
+.social-links a:hover{
+border-color:var(--accent);
+box-shadow:0 0 18px rgba(157,124,255,0.55);
+transform:translateY(-4px);
+}
+
+.social-links img{
+width:22px;
+height:22px;
+}
+
+/* WhatsApp */
+#whatsappBtn{
+position:fixed;
+bottom:28px;
+right:28px;
+transition:0.3s;
+z-index: 1000;
+}
+#whatsappBtn:hover{
+transform:scale(1.15);
+}
+</style>
 </head>
 
 <body>
-    <div class="container my-5">
-        <header class="text-center mb-5">
-            <img src="img/profile.jpeg" id="profileImage" alt="Zeki Şahmaran Profil Fotoğrafı">
-            <h1 class="display-4 fw-bold mt-4">ZEKİ ŞAHMARAN</h1>
-            <p class="text-muted">
-                <a href="mailto:zekisahmaran2409@gmail.com" class="text-muted text-decoration-none">
-                    zekisahmaran2409@gmail.com
-                </a>
-            </p>
-        </header>
+<div class="container my-5">
 
-        <section>
-            <h2>Tanıtım & Medya</h2>
-            <div class="video-wrapper ratio ratio-16x9">
-                <iframe 
-                    title="Zeki Şahmaran Tanıtım Videosu"
-                    src="https://www.youtube.com/embed/CEnIXtpEZ34"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </section>
+<header class="text-center mb-5">
+<img src="img/profile.jpeg" id="profileImage" alt="Zeki Şahmaran Profil Fotoğrafı" onclick="changeNeonColor()">
+<h1 class="display-4 fw-bold mt-4">ZEKİ ŞAHMARAN</h1>
+<p class="text-muted mt-2">
+✉ <a href="mailto:zekisahmaran2409@gmail.com" class="text-muted text-decoration-none">
+zekisahmaran2409@gmail.com
+</a>
+</p>
+</header>
 
-        <div class="social-links">
-            <a href="https://github.com/zekisahmaran2409-rgb" target="_blank">GitHub</a>
-            <a href="https://instagram.com/zekisahmaran" target="_blank">Instagram</a>
-            <a href="https://www.youtube.com/@zeki-s09" target="_blank">YouTube</a>
-        </div>
-    </div>
+<div class="row">
+<div class="col-lg-6">
 
-    <a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
-        <img src="img/whatsapp.png" width="60" alt="WhatsApp">
-    </a>
+<section>
+<h2>Özet</h2>
+<p>
+Ben Zeki Şahmaran. Futbol ve teknolojiye ilgi duyan,
+Türk Maarif Koleji öğrencisiyim. Python, robotik kodlama ve
+web geliştirme alanlarında kendimi sürekli geliştirmekteyim.
+</p>
+</section>
+
+<section>
+<h2>Eğitim</h2>
+<p><strong>Türk Maarif Koleji</strong> — 2020 / Devam Ediyor</p>
+<p><strong>Ağırdağ İlkokulu</strong> — 2014 / 2020</p>
+</section>
+
+<section>
+<h2>Deneyim</h2>
+<p>• Suva Medya — Web Geliştirme Stajyeri</p>
+<p>• Whitehat Computer — Teknik Servis Stajyeri</p>
+<p>• Deniz Plaza — Satış Danışmanı</p>
+</section>
+
+<section>
+<h2>Diller</h2>
+<p>🇹🇷 Türkçe — Ana Dil</p>
+<p>🇬🇧 İngilizce — İyi Seviye</p>
+<p>🇩🇪 Almanca — Temel Seviye</p>
+</section>
+
+</div>
+
+<div class="col-lg-6">
+
+<section>
+<h2>Yetenekler</h2>
+<div class="d-flex flex-wrap">
+<span class="badge-skill">Robotik Kodlama</span>
+<span class="badge-skill">Python</span>
+<span class="badge-skill">Web Tasarımı</span>
+<span class="badge-skill">Teknik Servis</span>
+</div>
+</section>
+
+<section>
+<h2>Projeler</h2>
+<p>• Python ile mini otomasyon uygulamaları</p>
+<p>• Robotik kodlama ile çizgi izleyen robot</p>
+<p>• Kişisel portfolyo web sitesi</p>
+</section>
+
+<section>
+<h2>Ödüller</h2>
+<p>🏆 TMKATHLON — Takım Üçüncülüğü</p>
+<p>⚽ Okullar Arası Futsal Turnuvası — İkincilik</p>
+</section>
+
+<section>
+<h2>Kulüpler & Gönüllülük</h2>
+<p>• Türk Maarif Koleji — Robotik Kulübü</p>
+<p>• Türk Maarif Koleji — Kitap Kulübü</p>
+<p>• Türk Maarif Koleji — Futsal Takımı</p>
+</section>
+
+</div>
+</div>
+
+<section>
+<h2 class="text-center">Tanıtım & Medya</h2>
+<div class="video-wrapper ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/CEnIXtpEZ34" allowfullscreen></iframe>
+</div>
+</section>
+
+<div class="social-links">
+<a href="https://github.com/zekisahmaran2409-rgb" target="_blank">
+<img src="img/github.png" alt="GitHub">GitHub
+</a>
+<a href="https://instagram.com/zekisahmaran" target="_blank">
+<img src="img/instagram.png" alt="Instagram">Instagram
+</a>
+<a href="https://www.facebook.com/Zeki.sahmaran" target="_blank">
+<img src="img/facebook.png" alt="Facebook">Facebook
+</a>
+<a href="https://www.youtube.com/@zeki-ş09" target="_blank">
+<img src="img/youtube.png" alt="YouTube">YouTube
+</a>
+</div>
+
+<footer>
+<p class="text-center text-muted mt-3" style="font-size:0.85rem;">
+© 2026 Zeki Şahmaran. Tüm hakları saklıdır.
+</p>
+</footer>
+
+</div>
+
+<a href="https://wa.me/905338891918" target="_blank" id="whatsappBtn">
+<img src="img/whatsapp.png" width="60" alt="WhatsApp">
+</a>
+
+<script>
+let colorIndex = 0;
+const colors = ['#00F5FF','#9D7CFF','#39FF14','#FEF233'];
+
+function changeNeonColor(){
+const img = document.getElementById('profileImage');
+colorIndex = (colorIndex + 1) % colors.length;
+img.style.borderColor = colors[colorIndex];
+img.style.boxShadow = `0 0 28px ${colors[colorIndex]}`;
+}
+</script>
 
 </body>
 </html>
