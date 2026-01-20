@@ -46,7 +46,10 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
+            /* Resmin yanlardan basılmasını engelleyen kısım burası */
             object-fit: cover;
+            object-position: center;
+            aspect-ratio: 1 / 1; 
             border: 2px solid var(--neon);
             box-shadow: 0 0 28px rgba(0, 245, 255, 0.35);
             cursor: pointer;
